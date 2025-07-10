@@ -9,6 +9,9 @@ import bookRoutes from "./routes/bookRoutes.js";
 import { connectDB } from "./config/db.js";
 
 const app = express();
+// Increase payload limit (e.g., 10MB)
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 const PORT = process.env.PORT || 3000;
 
 job.start();
